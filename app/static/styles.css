@@ -1,0 +1,183 @@
+:root {
+  font-family: "Segoe UI", system-ui, sans-serif;
+  color: #222;
+  background: #f6f8fb;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  background: #1f3c88;
+  color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+main {
+  flex: 1;
+  padding: 1rem 2rem;
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  background: #e3e9f2;
+}
+
+h1, h2, h3 {
+  margin-top: 0;
+}
+
+form {
+  display: grid;
+  gap: 0.5rem;
+  max-width: 520px;
+  margin-top: 1rem;
+  background: white;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(31, 60, 136, 0.1);
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.9rem;
+  gap: 0.25rem;
+}
+
+input, select, button {
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #c8d4f0;
+  border-radius: 6px;
+}
+
+button {
+  cursor: pointer;
+  background: #1f3c88;
+  color: white;
+  border: none;
+  transition: background 0.2s ease;
+}
+
+button:hover {
+  background: #162a5d;
+}
+
+button.outline {
+  background: transparent;
+  color: #1f3c88;
+  border: 1px solid #1f3c88;
+}
+
+button.outline:hover {
+  background: #1f3c88;
+  color: white;
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+nav button {
+  flex: 1 1 auto;
+}
+
+.view {
+  background: white;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.hidden {
+  display: none !important;
+}
+
+.table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.table th, .table td {
+  border: 1px solid #d5def1;
+  padding: 0.5rem;
+  text-align: left;
+}
+
+.table th {
+  background: #f0f4ff;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  color: white;
+}
+
+.card-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.card {
+  background: #fff;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 2px 6px rgba(31, 60, 136, 0.1);
+}
+
+.hint {
+  font-size: 0.85rem;
+  color: #555;
+}
+
+.filters {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.toast {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #1f3c88;
+  color: white;
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.toast.visible {
+  opacity: 0.96;
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  main {
+    padding: 1rem;
+  }
+  nav button {
+    flex: 1 1 45%;
+  }
+}
