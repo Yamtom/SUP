@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SUP Планувальник</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header>
+    <h1>SUP Планувальник</h1>
+    <div id="user-info"></div>
+  </header>
+  <main>
+    <section id="auth-section">
+      <h2>Вхід</h2>
+      <form id="login-form">
+        <label>Користувач
+          <input type="text" name="username" required />
+        </label>
+        <label>Пароль
+          <input type="password" name="password" required />
+        </label>
+        <button type="submit">Увійти</button>
+      </form>
+      <p class="hint">Тестові облікові дані: admin/admin123, planner/plan123, viewer/view123</p>
+    </section>
+
+    <section id="app" class="hidden">
+      <nav id="nav">
+        <button data-view="dashboard">Дашборд</button>
+        <button data-view="personnel">Персонал</button>
+        <button data-view="schedule">Графік</button>
+        <button data-view="plan">План</button>
+        <button data-view="vacations">Відпустки</button>
+        <button data-view="analytics">Аналітика</button>
+        <button id="logout-btn" class="outline">Вийти</button>
+      </nav>
+
+      <section id="view-dashboard" class="view hidden">
+        <h2>Дашборд</h2>
+        <div id="dashboard-content"></div>
+      </section>
+
+      <section id="view-personnel" class="view hidden">
+        <h2>Персонал</h2>
+        <div id="personnel-table"></div>
+        <form id="personnel-form" class="hidden">
+          <h3>Новий співробітник</h3>
+          <label>ПІБ <input type="text" name="full_name" required /></label>
+          <label>Роль <input type="text" name="role" required /></label>
+          <label>Позивний <input type="text" name="callsign" /></label>
+          <label>Підрозділ <input type="text" name="unit" required /></label>
+          <button type="submit">Зберегти</button>
+        </form>
+      </section>
+
+      <section id="view-schedule" class="view hidden">
+        <h2>Місячний графік</h2>
+        <label>Місяць <input type="month" id="schedule-month" /></label>
+        <button id="refresh-schedule">Оновити</button>
+        <div id="schedule-table"></div>
+        <form id="schedule-form" class="hidden">
+          <h3>Призначення чергування</h3>
+          <label>Дата <input type="date" name="duty_date" required /></label>
+          <label>Персонал <select name="person_id" required></select></label>
+          <label>Тип чергування <select name="duty_type_id" required></select></label>
+          <label>Нотатки <input type="text" name="note" /></label>
+          <button type="submit">Зберегти</button>
+        </form>
+      </section>
+
+      <section id="view-plan" class="view hidden">
+        <h2>План на день</h2>
+        <label>Дата <input type="date" id="plan-date" /></label>
+        <button id="refresh-plan">Оновити</button>
+        <div id="plan-table"></div>
+        <form id="plan-form" class="hidden">
+          <h3>Нове завдання</h3>
+          <label>Дата <input type="date" name="plan_date" required /></label>
+          <label>Підрозділ <input type="text" name="unit" required /></label>
+          <label>Завдання <input type="text" name="mission" required /></label>
+          <label>Час початку <input type="time" name="start_time" /></label>
+          <label>Час завершення <input type="time" name="end_time" /></label>
+          <label>Пілот <select name="pilot_id"></select></label>
+          <label>Штурман <select name="navigator_id"></select></label>
+          <label>БПЛА <select name="uav_id"></select></label>
+          <label>ТЗ <select name="vehicle_id"></select></label>
+          <label>АКБ <select name="battery_id"></select></label>
+          <label>Нотатки <input type="text" name="notes" /></label>
+          <button type="submit">Зберегти</button>
+        </form>
+      </section>
+
+      <section id="view-vacations" class="view hidden">
+        <h2>Графік відпусток</h2>
+        <div id="vacation-table"></div>
+        <form id="vacation-form" class="hidden">
+          <h3>Нова відпустка</h3>
+          <label>Співробітник <select name="person_id" required></select></label>
+          <label>Початок <input type="date" name="start_date" required /></label>
+          <label>Кінець <input type="date" name="end_date" required /></label>
+          <label>Статус <input type="text" name="status" value="approved" /></label>
+          <button type="submit">Зберегти</button>
+        </form>
+      </section>
+
+      <section id="view-analytics" class="view hidden">
+        <h2>Аналітика</h2>
+        <div class="filters">
+          <label>Початок <input type="date" id="analytics-start" /></label>
+          <label>Кінець <input type="date" id="analytics-end" /></label>
+          <button id="refresh-analytics">Показати</button>
+        </div>
+        <div id="analytics-content"></div>
+      </section>
+    </section>
+  </main>
+  <footer>
+    <small>SUP &copy; 2025</small>
+  </footer>
+  <script src="/app.js" defer></script>
+</body>
+</html>
